@@ -1,0 +1,84 @@
+<!doctype html>
+
+{% extends 'main/base.html' %} 
+{% load static %}
+
+<html lang="en">
+ 
+{% block title %} 
+About Us
+{% endblock %} 
+
+ 
+{% block content %}
+
+<br>
+<br>
+<br>
+
+<div class="text-center">
+  <h1 data-aos="fade-up" data-aos-offset="200"><span style="color: rgb(92, 85, 85);">About </span> <span style="color: rgb(175, 56, 56);">Developer</span></h1>
+  <hr>
+</div>
+
+<br>
+<br>
+
+<section>
+  <div class="container">
+  <img class="about-us" src="{% static 'main/images/Arshit_Kaur.jpeg' %}" class="img-fluid" alt="Responsive image" style="align-items: center;">
+  
+  <br>
+  <br>
+  <div class="text-center">
+    <h3 data-aos="zoom-out" data-aos-offset="200"><span style="color:brown">Arshit Kaur </span></h3>
+    <hr>
+  </div>
+
+    
+    <p class="student">
+      I am a hard-working college student with a passion for Web Development and Coding. I have participated in various coding contests. I am eager to learn about new technologies in the computer science field. Now I am working on enhancing my skills. The most valuable lesson I have learned till now is that hard work is the only key to success. No one can achieve success by just sitting idle and just only thinking about success. You have to work, you have to move out of your comfort zone.
+    </p>
+    <br>
+    <br>
+    <h2 style="font-family: 'Crimson Text', serif; color: brown; font-weight: bold;"><span style="color: rgb(92, 85, 85);">PURPOSE </span> <span style="color: brown;">FOR </span> <span style="color: rgb(92, 85, 85);">DEVELOPING </span><span style="color: brown;">THIS </span><span style="color: rgb(92, 85, 85);">PROJECT - </span> </h2>
+    <br>
+    <br>
+    <p class="student">
+      In the era of today's busy life, everyone is getting stressed because of certain reasons. And there is a great need for such a thing where a person can listen to music and enjoy it, can read novels and comics for entertainment. This definitely helps in reducing stress and makes them relaxed. 
+      <br>
+      This is a project where a person gets three things at one place. You can enjoy listening music anytime. 
+      You can read comics and novels to refresh your mind.
+      <br>
+      <span style="font-weight: bold;">Various benefits of music, novels and comics:-</span>
+      <br>
+      -Research has shown that listening to music can reduce anxiety, blood pressure, and pain as well as improve sleep quality, mood, mental alertness, and memory.<br>
+      -Reading novels and comics:-<br>
+      &nbsp;*improves brain connectivity.<br>
+      &nbsp;*increases your vocabulary and comprehension.<br>
+      &nbsp;*empowers you to empathize with other people.<br>
+      &nbsp;*aids in sleep readiness.<br>
+      &nbsp;*reduces stress.<br>
+      &nbsp;*lowers blood pressure and heart rate.<br>
+      &nbsp;*fights depression symptoms.<br>
+      &nbsp;*prevents cognitive decline as you age.<br>
+    </p>
+
+  
+
+  </div>
+</section>
+
+{% endblock content %}
+
+{% block js %} 
+  
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+{% endblock js %}

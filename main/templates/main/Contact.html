@@ -1,0 +1,162 @@
+<!doctype html>
+
+{% extends 'main/base.html' %} 
+{% load static %}
+
+<html lang="en">
+ 
+{% block title %} 
+Contact Us
+{% endblock title %} 
+
+{% block link %} 
+{{block.super}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{% endblock link %}
+
+{% block content %} 
+
+{% if messages %} 
+    {% for msg in messages %}
+    <script>
+    Swal.fire("Success!", "{{msg}}", "success");
+    </script>
+    {% endfor %} 
+{% endif %}
+
+      <div class="whole">
+      <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{% static 'main/images/crousel1.jpg' %}" class="d-block w-100" height="500" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Music</h5>
+              <p>“Music is the shorthand of emotion.” – Leo Tolstoy</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'main/images/crousel2.jpg' %}" class="d-block w-100" height="500" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Comics</h5>
+              <p>"Words appear in a box separated from the rest of the panel or page, usually to give voice to a narrator, but sometimes used for the characters' thoughts or dialogue." - Unknown</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'main/images/crousel3.jpg' %}" class="d-block w-100" height="500" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Novels</h5>
+              <p>“The more that you read, the more things you will know. The more that you learn, the more places you’ll go.”
+
+                - Dr. Seuss </p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <br>
+      <br>
+      <br>
+
+
+      <div class="contact_info">
+        <div class="container">
+          <div class="text-center">
+            <h1 data-aos="fade-up" data-aos-offset="200"><span style="color: rgb(92, 85, 85);">Contact </span> <span style="color: rgb(175, 56, 56);">Us</span></h1>
+            <hr>
+          </div>
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="contact_info_container d-flex flex-lg-row flex-column justify-content-between align-items-between">
+
+                        <!-- Contact Item -->
+                        <div class="contact_info_item d-flex flex-row align-items-center justify-content-start">
+                            <div class="contact_info_image"><img src="https://img.icons8.com/office/24/000000/iphone.png" alt=""></div>
+                            <div class="contact_info_content">
+                                <div class="contact_info_title">Phone</div>
+                                <div class="contact_info_text">+91 9876 543 2198</div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Item -->
+                        <div class="contact_info_item d-flex flex-row align-items-center justify-content-start">
+                            <div class="contact_info_image"><img src="https://img.icons8.com/ultraviolet/24/000000/filled-message.png" alt=""></div>
+                            <div class="contact_info_content">
+                                <div class="contact_info_title">Email</div>
+                                <div class="contact_info_text">contact@taketen.com</div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Item -->
+                        <div class="contact_info_item d-flex flex-row align-items-center justify-content-start">
+                            <div class="contact_info_image"><img src="https://img.icons8.com/ultraviolet/24/000000/map-marker.png" alt=""></div>
+                            <div class="contact_info_content">
+                                <div class="contact_info_title">Address</div>
+                                <div class="contact_info_text">298,Menlo Park,CA,USA</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Form -->
+
+    <div class="contact_form">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="contact_form_container">
+                        <div class="contact_form_title">Get in Touch</div>
+
+                        <form action="" id="contact_form" name="contact_form" method="POST">
+                          {% csrf_token %}
+                            <div class="contact_form_inputs d-flex flex-md-row flex-column justify-content-between align-items-between">
+                                <input type="text" id="name" name="name" class="contact_form_name input_field" placeholder="Your name" required="required" data-error="Name is required.">
+                                <input type="email" id="email" name="email" class="contact_form_email input_field" placeholder="Your email" required="required" data-error="Email is required.">
+                                <input type="text" id="contact" name="contact" class="contact_form_phone input_field" placeholder="Your phone number">
+                            </div>
+                            <div class="contact_form_text">
+                                <textarea type="text" id="message" name="message" class="text_field contact_form_message" name="message" rows="4" placeholder="Message" required="required" data-error="Please, write us a message."></textarea>
+                            </div>
+                            <div class="contact_form_button">
+                                <button type="submit" class="button contact_submit_button">Send Message</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel"></div>
+    </div>
+
+{% endblock content %}
+     
+{% block js %} 
+  
+        
+        
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <script>
+        AOS.init();
+      </script>
+   
+{% endblock js %}

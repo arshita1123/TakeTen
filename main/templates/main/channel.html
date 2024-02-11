@@ -1,0 +1,50 @@
+{%extends 'main/basic.html'%}
+{% block title%} Channel {% endblock %}
+
+{% block body %}
+
+<h2 style="text-align: center; padding-top: 2%; color: rgb(218, 16, 16); ">Your Channel <br> </h2>
+<h2  style="text-align: center; padding-top: 2%; color: rgb(218, 16, 16);" > Username: {{channel.name}} </h2>
+<i>
+  {% if song|length < 1 %}
+  <center>
+        <h6 class="blink" style="text-align: center; padding-top: 5%; width:30%; color: rgb(218, 16, 16)"> <marquee>The songs uploaded by you will be visible here </marquee></h6>
+  </center>
+        {% else %} 
+  <center>
+  <h6 class="blink" style="text-align: center; padding-top: 2%; color: rgb(218, 16, 16); width:30%"> <marquee> The list of songs uploaded by you: </marquee> </h6>
+    </center>
+  {% endif %}
+
+</i>
+<br> <br>
+<div class="container">
+{% for i in song reversed %}
+<div class="card mb-3" style="max-width: 940px; padding-top: 0%;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="{{i.image}}" class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title" style="color: green; font-weight: 550;">{{i.name}}</h5>
+          <p class="card-text">Tags: {{i.tags}}</p>
+        <p class="card-text">Movie: {{i.movie}}</p>
+        {% if user.is_authenticated %}
+        <form action="/history" method="POST">{% csrf_token %}
+          <input type="hidden" name="music_id" value="{{i.song_id}}">
+          <a href="songs/{{i.song_id}}"><button class="btn btn-outline-danger">Listen Song</button></a>
+        </form>
+        {% else %}
+        <a href="/songs/{{i.song_id}}"><button class="btn btn-outline-danger">Listen Song</button></a>
+        {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  
+</div>
+
+
+{% endblock %}

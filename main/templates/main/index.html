@@ -1,0 +1,431 @@
+<!doctype html>
+
+{% extends 'main/base.html' %} 
+{% load static %}
+
+<!-- Title -->
+<html lang="en">
+  {% block title %} 
+  Home
+  {% endblock %} 
+    
+<!-- external links -->
+{% block link %} 
+{{block.super}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+{% endblock link %} 
+
+
+<!-- main content (body) -->
+  {% block content %} 
+
+  <!-- pop-up messages -->
+  {% if messages %} 
+    {% for msg in messages %}
+
+    {% if msg.tags == 'success' %}
+    <script >
+    Swal.fire("Success!", "{{msg}}", "success");
+    </script>
+
+    {% else %} 
+    <script >
+      Swal.fire("Error!", "{{msg}}", "error");
+      </script>
+    {% endif %}
+    {% endfor %} 
+  {% endif %}
+
+  <!-- Welcoming user on successfull login -->
+  {% if show %} 
+  
+  <input type="hidden" id="myVar" name="variable" value= {{name}}>
+<script>
+   alert('Login Successfull !!!')
+   var myVar = document.getElementById("myVar").value; 
+   
+   Swal.fire({
+  title: 'Welcome ' + myVar + '!',
+  showClass: {
+    popup: 'animate__animated animate__fadeInDown'
+  },
+  hideClass: {
+    popup: 'animate__animated animate__fadeOutUp'
+  }
+})
+alert('Now you can discover our features')
+</script>
+
+{% endif %}
+
+<!-- body content -->
+  <div class="whole">
+    <div id="carouselExampleCaptions" class="carousel slide">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{% static 'main/images/crousel1.jpg' %}" class="d-block w-100" height="500" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Music</h5>
+            <p>“Music is the shorthand of emotion.” – Leo Tolstoy</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'main/images/crousel2.jpg' %}" class="d-block w-100" height="500" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Comics</h5>
+            <p>"Words appear in a box separated from the rest of the panel or page, usually to give voice to a narrator, but sometimes used for the characters' thoughts or dialogue." - Unknown</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'main/images/crousel3.jpg' %}" class="d-block w-100" height="500" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Novels</h5>
+            <p>“The more that you read, the more things you will know. The more that you learn, the more places you’ll go.”
+
+              - Dr. Seuss </p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    
+    <section class="about">
+      <div class="container">
+        <div class="text-center">
+          <h1 data-aos="fade-up" data-aos-offset="200"><span style="color: rgb(92, 85, 85);">Read, </span> <span style="color: rgb(175, 56, 56);">Listen</span> <span style="color: rgb(135, 69, 77);"> and</span> <span style="color: rgb(181, 180, 120);"> Explore!</span></h1>
+          <hr>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-6 col-12">
+          <h1 class="music">Pablo Casals: “ <span style="text-decoration:underline; font-weight: bolder; color: brown;">Music</span> is the divine way to tell beautiful, poetic things to the heart."</h1>
+          <br>
+          
+          
+          <p class="p-2">
+            Music is the essence of life. Everything that has rhythm has music. Our breathing also has a rhythm. Thus, we can say that there is music in every human being or a living creature. Music has the ability to convey all sorts of emotions to people. Music is also a very powerful means to connect with God. We can conclude that Music is the purest form of worship of God and to connect with our soul.
+          </p>
+          <br>
+          <!-- <button type="button" class="btn btn-dark">Read More</button>  -->
+          <a href="https://www.neurotrackerx.com/post/is-listening-to-music-good-for-your-mental-health" target="_blank" class="btn btn-dark">Read More</a>
+          <br>
+          <br>
+          
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <span style="font-family: 'Cormorant', serif; font-size: x-large;">Music is known as the Universal Language</span>
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <span style="font-size: large; color: black;">"One good thing about music, when it hits you, you feel no pain." </span> Music is known as the Universal language because it knows no boundaries. It flows freely beyond the barriers of language, religion, country, etc. Anybody can enjoy music irrespective of his age.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <span style="font-family: 'Cormorant', serif; font-size: x-large;">Magical Powers of Music</span>
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <span style="font-size: large; color: black;">“Music gives a soul to the universe, wings to the mind, flight to the imagination, and life to everything.”</span> It has the power to cure diseases such as anxiety, depression, insomnia, etc. The power of Music can be testified by the legends about Tansen of his bringing the rains by singing Raag Megh Malhar and lighting lamps by Raga Deepak. It also helps in improving the concentration and is thus of great help to the students.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  <span style="font-family: 'Cormorant', serif; font-size: x-large;">Music Has the Power to Heal</span>
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <span style="font-size: large; color: black;">“Music, once admitted to the soul, becomes a sort of spirit, and never dies.”</span> “I see my life in terms of music.” “Music is everywhere. It’s in the air between us, waiting to be sung.” These are the words told by David Levithan. Some of the greatest music is produced by nature. For example, the sounds made by birds, waves hitting the seashore, waterfalls, flowing water in a stream, rain and so on. How beautiful are those, right? Music produced by nature is highly connected with human emotions.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+
+          <div class="col-sm-12 col-md-6 col-lg-6 col-12 m-auto" style="height: 500px; position: relative;">
+            <img src="{% static 'main/images/Music.jpg' %}" alt="" class="img-fluid rounded-circle" style="width: 80%; margin: 50px; position: absolute; height: 500px; padding: 60px;">
+          </div>
+
+        </div>
+      </div>
+     
+        <br>
+        <hr>
+        <br>
+        <br>
+
+
+      <div class="container">
+        <div class="row">
+
+
+          <div class="col-sm-12 col-md-6 col-lg-6 col-12">
+          <h1 class="music">Robert C Harvey: “<span style="text-decoration:underline; font-weight: bolder; color: brown;">Comics</span>... are sometimes four-legged and sometimes two-legged and sometimes fly and sometimes don’t ...."</h1>
+          <br>
+          
+          
+          <p class="p-2">
+            Comic books aren't just about superheroes and villains. And they're certainly not just for boys. Comic books and graphic novels are spread across many different genres, including comedy, drama, sci‑fi and fantasy, and there is bound to be something to suit all tastes, ages and reading levels.For a long time comic books got a pretty bad press. They were the forbidden distraction that schoolchildren slipped inside the pages of real books. One of the best and most obvious benefits of comic books is that they can be more fun and easier to read than regular books. 
+          </p>
+          <br>
+          
+          <a href="https://qz.com/1777533/reading-comic-books-can-improve-brain-health" target="_blank" class="btn btn-dark">Read More</a>
+          <br>
+          <br>
+          
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <span style="font-family: 'Cormorant', serif; font-size: x-large;">Power of Comics</span>
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <span style="font-size: large; color: black;">"There are fewer words in comics because much of the story unfolds in the visuals." </span> For my students who struggle with vocabulary, these images offer visual clues to help decode new words. To fully understand the storyline, you need both the words and the pictures. If you are only reading the words or only looking at the pictures, you are missing half of the story.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <span style="font-family: 'Cormorant', serif; font-size: x-large;">Reason to start reading Comics</span>
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <span style="font-size: large; color: black;">“Comic Books Help People Learn to Love Reading”</span> Lots of people, especially young readers who are struggling to improve their reading skills, can benefit from the visual format of comic books and graphic novels. With their intense visuals and focus on plot and characters, comic books can be much more engaging than other literary media, such as novels or short stories.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  <span style="font-family: 'Cormorant', serif; font-size: x-large;">Significance in Education</span>
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <span style="font-size: large; color: black;">“Comics speak to students in a way they understand and identify with." </span> Even after students learn to be strong readers comics give students the opportunity to read material which combines images with text to express satire, symbolism, point of view, drama, puns and humor in ways not possible with text alone.
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6 col-12 m-auto" style="height: 500px; position: relative;">
+          <img src="{% static 'main/images/comics.jpg' %}" alt="" class="img-fluid rounded-circle" style="width: 80%; margin: 50px; position: absolute; height: 500px; padding: 60px;">
+        </div>
+      </div>
+      
+      <br>
+      <hr>
+      <br>
+      <br>
+
+      <div class="container">
+
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-6 col-12">
+          <h1 class="music">Lorrie Moore: “A short story is a love affair, a novel is a marriage. A short story is a photograph; a <span style="text-decoration:underline; font-weight: bolder; color: brown;">Novel</span> is a film."</h1>
+          <br>
+          
+          
+          <p class="p-2">
+            A novel is an invented prose narrative of significant length and complexity that deals imaginatively with human experience. Its roots can be traced back thousands of years, though its origins in English are traditionally placed in the 18th century.
+          </p>
+          <br>
+        <a href="https://thedylanthomasprize.com/on-the-importance-of-novels/#:~:text=Novels%20have%20been%20capturing%20the,aren't%20even%20aware%20of." target="_blank" class="btn btn-dark"> Read More</a>
+          <br>
+          <br>
+          
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <span style="font-family: 'Cormorant', serif; font-size: x-large;">Impact of Novels</span>
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <span style="font-size: large; color: black;">"Novels have a long, rich history, shaped by formal standards, experimentation, and cultural and social influences." </span> Authors use novels to tell detailed stories about the human condition, presented through any number of genres and styles. The word novel comes from the Italian and Latin novella, meaning “a new story.”
+                </div>
+              </div>
+            </div>
+            
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <span style="font-family: 'Cormorant', serif; font-size: x-large;">Novels have great artistic merit</span>
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <span style="font-size: large; color: black;">“Novels have been capturing the imagination of readers and taking them into worlds of their own for centuries." </span> There are a lot of novel genres, including romance, science fiction, fantasy, mystery, thrillers and others. There are also subgenres such as historical romance that many people aren’t even aware of.
+
+                    Today novels attract more writers than any other forms of creative writing.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  <span style="font-family: 'Cormorant', serif; font-size: x-large;">Novel - A long narrative in literary prose</span>
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <span style="font-size: large; color: black;">“ Narrative prose is meant to entertain and tell a story." </span> It is a description of a chain of events which includes a cast of characters, a setting, and an ending. Most publishers prefer novels that are in the 80,000- to 120,000-word range, depending on the genre.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        
+
+
+          <div class="col-sm-12 col-md-6 col-lg-6 col-12 m-auto" style="height: 500px; position: relative;">
+            <img src="{% static 'main/images/Novels.jpg' %}" alt="" class="img-fluid rounded-circle" style="width: 80%; margin: 50px; position: absolute; height: 500px; padding: 60px;">
+          </div>
+
+        </div>
+      </div>
+
+        <br>
+        <hr>
+        <br>
+        <br>
+
+      </div>
+    </div>
+  </div>
+      
+
+
+              </div>
+
+    </section>
+  </div>
+
+  <!-- Contact Section -->
+   <div class="contact_info">
+      <div class="container">
+        <div class="text-center">
+          <h1 data-aos="fade-up" data-aos-offset="200"><span style="color: rgb(92, 85, 85);">Contact </span> <span style="color: rgb(175, 56, 56);">Us</span></h1>
+          <hr>
+        </div>
+          <div class="row">
+              <div class="col-lg-10 offset-lg-1">
+                  <div class="contact_info_container d-flex flex-lg-row flex-column justify-content-between align-items-between">
+
+                      <!-- Contact Item -->
+                      <div class="contact_info_item d-flex flex-row align-items-center justify-content-start">
+                          <div class="contact_info_image"><img src="https://img.icons8.com/office/24/000000/iphone.png" alt=""></div>
+                          <div class="contact_info_content">
+                              <div class="contact_info_title">Phone</div>
+                              <div class="contact_info_text">+91 9876 543 2198</div>
+                          </div>
+                      </div>
+
+                      <!-- Contact Item -->
+                      <div class="contact_info_item d-flex flex-row align-items-center justify-content-start">
+                          <div class="contact_info_image"><img src="https://img.icons8.com/ultraviolet/24/000000/filled-message.png" alt=""></div>
+                          <div class="contact_info_content">
+                              <div class="contact_info_title">Email</div>
+                              <div class="contact_info_text">contact@taketen.com</div>
+                          </div>
+                      </div>
+
+                      <!-- Contact Item -->
+                      <div class="contact_info_item d-flex flex-row align-items-center justify-content-start">
+                          <div class="contact_info_image"><img src="https://img.icons8.com/ultraviolet/24/000000/map-marker.png" alt=""></div>
+                          <div class="contact_info_content">
+                              <div class="contact_info_title">Address</div>
+                              <div class="contact_info_text">298,Menlo Park,CA,USA</div>
+                          </div>
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Contact Form -->
+
+  <div class="contact_form">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="contact_form_container">
+                    <div class="contact_form_title">Get in Touch</div>
+
+                    <form action="" id="contact_form" name="contact_form" method="POST">
+                      {% csrf_token %}
+                        <div class="contact_form_inputs d-flex flex-md-row flex-column justify-content-between align-items-between">
+                            <input type="text" id="name" name="name" class="contact_form_name input_field" placeholder="Your name" required="required" data-error="Name is required.">
+                            <input type="email" id="email" name="email" class="contact_form_email input_field" placeholder="Your email" required="required" data-error="Email is required.">
+                            <input type="text" id="contact" name="contact" class="contact_form_phone input_field" placeholder="Your phone number">
+                        </div>
+                        <div class="contact_form_text">
+                            <textarea type="text" id="message" name="message" class="text_field contact_form_message" name="message" rows="4" placeholder="Message" required="required" data-error="Please, write us a message."></textarea>
+                        </div>
+                        <div class="contact_form_button">
+                            <button type="submit" class="button contact_submit_button">Send Message</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel"></div>
+</div>
+
+  {% endblock content %}
+
+      
+
+  <!-- javascript section -->
+  {% block js %} 
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  {% endblock js %}
+
+      
+      
+    

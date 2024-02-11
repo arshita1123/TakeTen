@@ -1,0 +1,59 @@
+<!doctype html>
+
+{% extends 'main/base.html' %} 
+{% load static %} 
+
+<html lang="en">
+ 
+{% block title %} 
+Discover 
+{% endblock %} 
+
+{% block link %} 
+{{block.super}}
+
+
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+{% endblock link %}
+ {% block content %} 
+
+<div class="container">
+    <h2 class="DiscoverText" data-aos="fade-up" data-aos-offset="200"><span style="color: black;">Wanna </span><span style="color: brown;">Relax </span><span style="color: black;">your </span><span style="color: brown;">mind?</span> &nbsp;<span style="color: black">You </span><span style="color: brown;">are </span><span style="color: black;">at </span><span style="color: brown;">the </span><span style="color: black;">right </span><span style="color: brown;">place...</span></span></h2>
+</div>
+
+
+<div class="container-class d-flex justify-content-center align-items-center">
+
+    <div class="dropdown">
+      <button class="btn btn-outline-danger dropdown-toggle-class" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+        <span>Select</span>
+        
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="{% url 'music' %}" target="_blank">Music</a></li>
+        <li><a class="dropdown-item" href="{% url 'comics' %}" target="_blank">Comics</a></li>
+        <li><a class="dropdown-item" href="{% url 'novels' %}" target="_blank">Novels</a></li>
+      </ul>
+    </div>
+     
+
+   </div>
+
+{% endblock content %}
+
+{% block js %} 
+            
+            
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+          <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+          <script>
+            AOS.init();
+          </script>
+{% endblock js %}
+ 
